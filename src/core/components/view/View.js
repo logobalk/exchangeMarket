@@ -1,11 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom';
 
 const View = (props) => {
   const { children } = props;
   const divProps = { ...props };
-  return <div {...divProps}>{children}</div>;
+  return (
+    <div style={{ padding: '1em' }} {...divProps}>
+      {children}
+    </div>
+  );
 };
 
 View.propTypes = {

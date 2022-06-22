@@ -1,12 +1,21 @@
-import { LOAD_REPOS } from "./constants";
+import {
+  SET_TICKER_PRICE_API_VALUE,
+  GET_TICKER_PRICE_API_SUCCESS,
+  GET_TICKER_PRICE_API_ERROR,
+} from './constants';
 
-/**
- * Load the repositories, this action starts the request saga
- *
- * @return {object} An action object with a type of LOAD_REPOS
- */
-export function loadRepos() {
+export function setTickerPriceValue(value, title) {
+  console.log('setTickerPriceValue')
   return {
-    type: LOAD_REPOS,
+    type: SET_TICKER_PRICE_API_VALUE,
+    value,
+    title,
+  };
+}
+
+export function getTickerPriceSuccess(response) {
+  return {
+    type: GET_TICKER_PRICE_API_SUCCESS,
+    response,
   };
 }

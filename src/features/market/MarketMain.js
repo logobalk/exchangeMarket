@@ -1,41 +1,64 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Layout } from "antd";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Grid, Layout, Row, Col, Card } from 'antd';
 import {
   Routes,
   Route,
   //   BrowserRouter,
   Navigate,
-  BrowserRouter as HistoryRouter,
+  unstable_HistoryRouter as HistoryRouter,
   Outlet,
-} from "react-router-dom";
-import { ConnectedRouter } from "connected-react-router";
-import routes from "../../routes";
-import BtcThb from "./btcThb";
-import history from "../../utils/history";
-import View from "../../core/components/view";
-export default function MainPage(props) {
-  console.log("MainPage====>", props);
-  const { Header, Footer, Sider, Content } = Layout;
+} from 'react-router-dom';
+import routes from './routes';
+import BtcThb from './right-side';
+import history from '../../utils/history';
+import View from '../../core/components/view';
+import LeftSide from './left-side';
+export default function MarketPage(props) {
+  const { state } = props;
+  useEffect(() => {
+    // setTimeout(() => {
+    // props.setTickerPriceValue(10);
+    // }, 5000);
+  }, []);
+  console.log('MarketPage==>', state.pairDetails);
   return (
-    <div>
-      <div>test234</div>
-      <View>
-        {/* <HistoryRouter history={history}> */}
-        {/* <HistoryRouter history={history}> */}
-        <Routes>
-          <Route
-            path="market"
-            element={<Navigate replace to="market/BTC_THB" />}
-          >
-            <Route path="BTC_THB" element={<BtcThb />} />
-          </Route>
-        </Routes>
-
-        {/* </HistoryRouter> */}
-        {/* <Outlet /> */}
-        {/* </HistoryRouter> */}
-      </View>
+    <div style={{ height: '100vh', padding: '1em' }}>
+      <Row>
+        <Col span={12}>
+          <View>
+            <LeftSide
+              setTickerPriceValue={(value, title) =>
+                props.setTickerPriceValue(value, title)
+              }
+            />
+          </View>
+        </Col>
+        <Col span={12}>
+          <div>
+            <Card style={{ width: '50%' }}>
+              <View>
+                <Routes>
+                  <Route path={routes.root}>
+                    <Route
+                      path={routes.BTC_THB}
+                      element={<BtcThb state={state} />}
+                    />
+                    <Route
+                      path={routes.BUSD_THB}
+                      element={<BtcThb state={state} />}
+                    />
+                    <Route
+                      path={routes.USDT_THB}
+                      element={<BtcThb state={state} />}
+                    />
+                  </Route>
+                </Routes>
+              </View>
+            </Card>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 }
