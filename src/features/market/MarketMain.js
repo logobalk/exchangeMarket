@@ -7,6 +7,7 @@ import {
   //   BrowserRouter,
   Navigate,
   BrowserRouter as HistoryRouter,
+  Outlet,
 } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import routes from "../../routes";
@@ -21,13 +22,18 @@ export default function MainPage(props) {
       <div>test234</div>
       <View>
         {/* <HistoryRouter history={history}> */}
-        {/* <ConnectedRouter history={history}>
-          <Routes>
-            <Route index path="market" element={<Navigate to={routes.home} />}>
-              <Route path="BTC_THB" element={<BtcThb />} />
-            </Route>
-          </Routes>
-        </ConnectedRouter> */}
+        {/* <HistoryRouter history={history}> */}
+        <Routes>
+          <Route
+            path="market"
+            element={<Navigate replace to="market/BTC_THB" />}
+          >
+            <Route path="BTC_THB" element={<BtcThb />} />
+          </Route>
+        </Routes>
+
+        {/* </HistoryRouter> */}
+        {/* <Outlet /> */}
         {/* </HistoryRouter> */}
       </View>
     </div>

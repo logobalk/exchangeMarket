@@ -6,22 +6,22 @@ import store from "./configure-store";
 import "./App.css";
 
 import MainAppRoute from "./features/main-page/index";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import routes from "./routes";
 import BtcThb from "./features/market/btcThb/index";
-import history from './utils/history';
-
+import history from "./utils/history";
+import "antd/dist/antd.min.css";
 function App() {
   return (
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <BrowserRouter history={history}>
         <Routes>
           <Route path="/" element={<MainAppRoute />}>
             {/* <Route path="*" element={<Navigate to={"/"} />} />
             <Route path="BTC_THB" element={<BtcThb />} /> */}
           </Route>
         </Routes>
-      </ConnectedRouter>
+      </BrowserRouter>
     </Provider>
   );
 }
