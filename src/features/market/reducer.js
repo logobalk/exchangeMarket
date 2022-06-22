@@ -18,7 +18,6 @@ const marketReducer = (state = initialState, action) =>
     // eslint-disable-next-line default-case
     switch (action.type) {
       case SET_TICKER_PRICE_API_VALUE:
-        console.log('SET_TICKER_PRICE_API_VALUE');
         draft.loading = true;
         draft.error = false;
         draft.tickerPriceValue = action.value;

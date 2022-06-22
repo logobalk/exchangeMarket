@@ -16,12 +16,7 @@ import View from '../../core/components/view';
 import LeftSide from './left-side';
 export default function MarketPage(props) {
   const { state } = props;
-  useEffect(() => {
-    // setTimeout(() => {
-    // props.setTickerPriceValue(10);
-    // }, 5000);
-  }, []);
-  console.log('MarketPage==>', state.pairDetails);
+
   return (
     <div style={{ height: '100vh', padding: '1em' }}>
       <Row>

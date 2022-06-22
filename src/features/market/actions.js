@@ -5,7 +5,6 @@ import {
 } from './constants';
 
 export function setTickerPriceValue(value, title) {
-  console.log('setTickerPriceValue')
   return {
     type: SET_TICKER_PRICE_API_VALUE,
     value,
