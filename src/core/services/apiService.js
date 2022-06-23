@@ -13,7 +13,7 @@ export default class ApiService {
 
   static getSocketUrl() {
     const socketUrl =
-      process.env.REACT_APP_WEB_SOCKET_URL || 'ws://206.189.92.172:9000';
+      process.env.REACT_APP_WEB_SOCKET_URL || 'wss://ws.satangcorp.com/ws/!miniTicker@arr';
     return socketUrl;
   }
 

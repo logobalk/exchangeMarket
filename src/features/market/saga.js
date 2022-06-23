@@ -15,8 +15,6 @@ import { ApiService } from '../../core/services';
 
 import {
   SET_TICKER_PRICE_API_VALUE,
-  GET_TICKER_PRICE_API_SUCCESS,
-  GET_TICKER_PRICE_API_ERROR,
 } from './constants';
 
 import { getTickerPriceSuccess } from './actions';
@@ -29,20 +27,16 @@ function callRequestTickerPrice(tickerPriceValue) {
   return ApiService.get(`${url}/api/v3/ticker/24hr`, queryParams);
 }
 
-function* callTicker(params) {
-  console.log('callTicker==>');
-  // const getUser = (state) => state.get('market');
+function* callTicker() {
   try {
     const data = yield select((state) => state.market);
     const res = yield call(callRequestTickerPrice, data.tickerPriceValue);
     yield put(getTickerPriceSuccess(res));
-    console.log('callTicker res==>', res);
   } catch (error) {
     console.log('callTicker error==>', error);
   }
 }
 function* tickerSaga() {
-  console.log('rootSaga');
   while (true) {
     yield take(SET_TICKER_PRICE_API_VALUE);
     yield call(callTicker);
@@ -50,9 +44,7 @@ function* tickerSaga() {
 }
 
 function* rootSaga() {
-  console.log('rootSaga');
   while (true) {
-    // yield take(SET_TICKER_PRICE_API_VALUE);
     yield call(callTicker);
     yield delay(5000);
   }

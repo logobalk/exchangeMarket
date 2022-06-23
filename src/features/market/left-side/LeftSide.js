@@ -5,17 +5,15 @@ import Button from '../../../core/components/Button';
 import CryptoConst from './CryptoConst';
 import { Col, Row } from 'antd';
 export default function LeftSide(props) {
-  console.log('CryptoConst==>', CryptoConst);
   const navigate = useNavigate();
   const onClick = (value, title) => {
-    console.log('onclick===>', title);
     props.setTickerPriceValue(value, title);
     navigate(`market/${value}`);
   };
   return (
     <Row style={{ float: 'right' }}>
       {CryptoConst.map((item) => (
-        <Col span={24}>
+        <Col span={24} key={item.title}>
           <Button
             type='default'
             size={item.size}
