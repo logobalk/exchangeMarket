@@ -1,23 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 
-import {
-  take,
-  call,
-  fork,
-  put,
-  cancel,
-  all,
-  select,
-  takeEvery,
-  delay,
-} from 'redux-saga/effects';
-import { ApiService } from '../../core/services';
+import { take, call, put, all, select, delay } from "redux-saga/effects";
+import { ApiService } from "../../core/services";
 
-import {
-  SET_TICKER_PRICE_API_VALUE,
-} from './constants';
+import { SET_TICKER_PRICE_API_VALUE } from "./constants";
 
-import { getTickerPriceSuccess } from './actions';
+import { getTickerPriceSuccess } from "./actions";
 
 function callRequestTickerPrice(tickerPriceValue) {
   const queryParams = {
@@ -33,7 +21,7 @@ function* callTicker() {
     const res = yield call(callRequestTickerPrice, data.tickerPriceValue);
     yield put(getTickerPriceSuccess(res));
   } catch (error) {
-    console.log('callTicker error==>', error);
+    console.log("callTicker error==>", error);
   }
 }
 function* tickerSaga() {

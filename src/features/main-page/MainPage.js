@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Layout } from "antd";
 import Market from "../market";
 export default function MainPage(props) {

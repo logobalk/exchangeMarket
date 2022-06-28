@@ -6,7 +6,6 @@ import MarketMain from "./MarketMain";
 
 const mapStateToProps = (state) => ({
     state: state.market,
-//   currentPath: state.router.location.pathname,
 });
 
 const mapDispatchToProps = (dispatch) =>

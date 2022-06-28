@@ -4,14 +4,9 @@ import { Grid, Layout, Row, Col, Card } from 'antd';
 import {
   Routes,
   Route,
-  //   BrowserRouter,
-  Navigate,
-  unstable_HistoryRouter as HistoryRouter,
-  Outlet,
 } from 'react-router-dom';
 import routes from './routes';
 import BtcThb from './right-side';
-import history from '../../utils/history';
 import View from '../../core/components/view';
 import LeftSide from './left-side';
 export default function MarketPage(props) {

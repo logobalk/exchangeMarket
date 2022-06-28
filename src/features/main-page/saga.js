@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 
-import { take, call, fork, put, cancel, all, select } from "redux-saga/effects";
+import { take, all } from "redux-saga/effects";
 
 import { LOAD_REPOS } from "./constants";
 

@@ -2,7 +2,6 @@ import produce from 'immer';
 import {
   SET_TICKER_PRICE_API_VALUE,
   GET_TICKER_PRICE_API_SUCCESS,
-  GET_TICKER_PRICE_API_ERROR,
 } from './constants';
 
 // The initial state of the main-page

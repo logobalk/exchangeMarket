@@ -3,16 +3,11 @@ import { Provider } from 'react-redux';
 import {
   Routes,
   Route,
-  BrowserRouter,
-  Navigate,
   unstable_HistoryRouter as HistoryRouter,
 } from 'react-router-dom';
-import { ConnectedRouter } from 'connected-react-router';
 import store from './configure-store';
 import './App.css';
-// import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import MainAppRoute from './features/main-page/index';
-// import "antd/dist/antd.css";
 import routes from './routes';
 import BtcThb from './features/market/right-side/index';
 import history from './utils/history';
@@ -27,8 +22,6 @@ function App() {
               <Route path='*' element={<MainAppRoute />} />
               <Route path={routes.BTC_THB} element={<BtcThb />} />
             </Route>
-            {/* <Route path="*" element={<Navigate to={"/"} />} />
-            <Route path="BTC_THB" element={<BtcThb />} /> */}
           </Route>
         </Routes>
       </HistoryRouter>
